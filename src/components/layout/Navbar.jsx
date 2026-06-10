@@ -87,7 +87,7 @@ export default function Navbar() {
                   CWM
                 </span>
                 <span className="block text-[10px] text-slate-500 tracking-wider uppercase">
-                  Circular Waste Mgmt
+                  Circular Waste Management
                 </span>
               </div>
             </button>
