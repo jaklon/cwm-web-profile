@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '20'
 
-      - name: 📦 Install dependencies (fresh, platform-aware)
+      - name: 📦 Install dependencies (cross-platform)
         run: |
           rm -f package-lock.json
           npm install --prefer-offline
@@ -32,10 +32,8 @@ jobs:
         run: |
           echo "=== dist/ contents ==="
           ls -la dist/
-          echo "=== Checking .htaccess ==="
-          ls dist/.htaccess && echo ".htaccess OK ✅" || echo ".htaccess MISSING ❌"
-          echo "=== Checking index.html ==="
-          head -3 dist/index.html
+          echo "=== .htaccess check ==="
+          ls dist/.htaccess && echo ".htaccess ✅" || echo ".htaccess ❌ MISSING"
 
       - name: 🚀 Deploy to Rumahweb via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -44,7 +42,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: /
+          server-dir: public_html/        # ← NO leading slash!
           dangerous-clean-slate: false
           exclude: |
             **/.git*
