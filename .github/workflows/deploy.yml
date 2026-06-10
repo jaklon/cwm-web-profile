@@ -27,6 +27,9 @@ jobs:
         run: npm run build
         env:
           CI: false
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
 
       - name: 🔍 Verify build output
         run: |
@@ -42,7 +45,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: public_html/        # ← NO leading slash!
+          server-dir: public_html/
           dangerous-clean-slate: false
           exclude: |
             **/.git*
