@@ -1,4 +1,12 @@
-import { MapPin, Phone, Mail, Globe, ArrowUpRight, Linkedin, Instagram, Youtube } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, ArrowUpRight, Linkedin, Instagram } from 'lucide-react';
+
+function YoutubeIcon({ size = 14 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.5 31.5 0 0 0 0 12a31.5 31.5 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.5 31.5 0 0 0 24 12a31.5 31.5 0 0 0-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/>
+    </svg>
+  );
+}
 import cwmLogo from '../../assets/cwm_logo.png';
 import { company } from '../../data/company';
 
@@ -101,7 +109,7 @@ export default function Footer() {
               </a>
               <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
-                <Youtube size={14} />
+                <YoutubeIcon size={14} />
               </a>
             </div>
           </div>
