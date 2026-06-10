@@ -19,7 +19,7 @@ jobs:
 
     - name: Install dependencies and Build
       run: |
-        npm install --include=optional
+        npm install --no-package-lock
         npm run build
 
     - name: Sync build files via FTP
