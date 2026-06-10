@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, ChevronDown, Recycle, Zap } from 'lucide-react';
 import StatCounter from '../ui/StatCounter';
-import ImagePlaceholder from '../ui/ImagePlaceholder';
 import { company } from '../../data/company';
 
 const PARTICLES = Array.from({ length: 28 }, (_, i) => ({
@@ -152,6 +151,10 @@ export default function Hero() {
                   {label}
                 </div>
               ))}
+              <div className="flex items-center gap-2 text-sm text-slate-600">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                Supported by INTEC Berlin
+              </div>
             </motion.div>
           </motion.div>
 
@@ -162,13 +165,14 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="space-y-4"
           >
-            {/* Hero image placeholder */}
-            <ImagePlaceholder
-              src={null}
-              label="Hero — Facility / Team Photo"
-              aspectRatio="4/3"
-              className="shadow-xl"
-            />
+            {/* Hero image */}
+            <div className="rounded-2xl overflow-hidden">
+              <img
+                src="/src/assets/hero.png"
+                alt="PT. CWM Industrial Facility"
+                className="w-full h-full object-cover rounded-2xl shadow-xl"
+              />
+            </div>
 
             {/* Compact stats card */}
             <div className="relative glass-card rounded-2xl p-6">

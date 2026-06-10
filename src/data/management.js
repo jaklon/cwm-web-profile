@@ -1,6 +1,6 @@
 export const management = [
   {
-    name: "Mr. Yamin Pakaya",
+    name: "Drs. Yamin Pakaya, M.T.",
     photo: null, // → "/images/team/yamin-pakaya.jpg"
     role: "Managing Director",
     roleColor: "green",
@@ -10,6 +10,8 @@ export const management = [
     tags: ["Biomass Energy", "Cofiring", "Renewable Energy"],
     icon: "Crown",
     initials: "YP",
+    speakerBadge: true,
+    speakerEvent: "BRIN Enviro Talk #56 — Speaker",
   },
   {
     name: "Mr. Salman YF Putra",
@@ -46,8 +48,8 @@ export const management = [
     initials: "RK",
   },
   {
-    name: "Ms. Dita Asrini",
-    photo: null, // → "/images/team/dita-asrini.jpg"
+    name: "Ms. Dita Astrid",
+    photo: null, // → "/images/team/dita-astrid.jpg"
     role: "Marketing Development",
     roleColor: "pink",
     education: "S1 Marketing · Master of International Relations",

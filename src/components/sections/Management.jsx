@@ -1,4 +1,5 @@
 import * as LucideIcons from 'lucide-react';
+import { Mic2 } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 import { StaggerContainer, StaggerItem } from '../ui/AnimatedSection';
 import { management, roleColorMap } from '../../data/management';
@@ -55,6 +56,12 @@ function MemberCard({ member }) {
               <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
               {member.role}
             </span>
+            {member.speakerBadge && (
+              <div className="mt-1.5 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-[10px] font-semibold text-blue-700">
+                <Mic2 size={10} />
+                {member.speakerEvent}
+              </div>
+            )}
           </div>
         </div>
 

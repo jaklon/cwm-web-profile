@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Globe, ArrowUpRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, ArrowUpRight, Linkedin, Instagram, Youtube } from 'lucide-react';
 import cwmLogo from '../../assets/cwm_logo.png';
 import { company } from '../../data/company';
 
@@ -6,6 +6,8 @@ const NAV_LINKS = [
   { label: 'Home',     href: '#home' },
   { label: 'About',    href: '#about' },
   { label: 'Services', href: '#services' },
+  { label: 'Partners', href: '#partners' },
+  { label: 'News',     href: '#news' },
   { label: 'Team',     href: '#team' },
   { label: 'Legal',    href: '#legal' },
   { label: 'Contact',  href: '#contact' },
@@ -81,6 +83,26 @@ export default function Footer() {
                   {badge}
                 </span>
               ))}
+            </div>
+
+            <div className="mt-4 flex items-center gap-2 text-xs text-slate-400">
+              <span className="text-slate-600">Supported by</span>
+              <span className="font-semibold text-slate-300">INTEC Group Berlin 🇩🇪</span>
+            </div>
+
+            <div className="mt-4 flex items-center gap-3">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                 className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+                <Linkedin size={14} />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                 className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+                <Instagram size={14} />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+                 className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+                <Youtube size={14} />
+              </a>
             </div>
           </div>
 

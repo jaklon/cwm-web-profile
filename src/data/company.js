@@ -66,7 +66,7 @@ export const company = {
     website: "circularwaste.id",
   },
   stats: [
-    { value: 400, suffix: "T/day", label: "Max Processing Capacity" },
+    { value: 1000, suffix: " T/day", label: "Max Processing Capacity" },
     { value: 4, suffix: " Products", label: "Industrial Solutions" },
     { value: 2023, suffix: "", label: "Year Founded" },
     { value: 5, suffix: " Experts", label: "Core Management Team" },

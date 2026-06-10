@@ -1,3 +1,4 @@
+// TODO: run: npm install @emailjs/browser
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import {
@@ -55,11 +56,30 @@ function ContactForm() {
 
   const onSubmit = async (data) => {
     setStatus('loading');
-    await new Promise((r) => setTimeout(r, 1400));
-    console.log('Form data:', data);
-    setStatus('success');
-    reset();
-    setTimeout(() => setStatus('idle'), 5000);
+    try {
+      // Replace with your EmailJS credentials in .env:
+      // VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY
+      const emailjs = await import('@emailjs/browser');
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID',
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID',
+        {
+          from_name:  data.name,
+          from_email: data.email,
+          company:    data.company || '-',
+          subject:    data.subject,
+          message:    data.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY'
+      );
+      setStatus('success');
+      reset();
+      setTimeout(() => setStatus('idle'), 5000);
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      setStatus('error');
+      setTimeout(() => setStatus('idle'), 4000);
+    }
   };
 
   const inputClass = (hasError) => `
@@ -71,6 +91,21 @@ function ContactForm() {
       ? 'border-red-400 focus:border-red-400 focus:ring-red-200'
       : 'border-slate-300'}
   `;
+
+  if (status === 'error') {
+    return (
+      <div className="flex flex-col items-center justify-center text-center py-16 gap-4">
+        <div className="w-16 h-16 rounded-2xl bg-red-100 border border-red-200 flex items-center justify-center">
+          <AlertCircle size={32} className="text-red-600" />
+        </div>
+        <h4 className="text-lg font-bold text-slate-900">Failed to Send</h4>
+        <p className="text-sm text-slate-600 max-w-xs">
+          Something went wrong. Please try again or contact us directly at{' '}
+          <span className="font-medium text-slate-800">{company.contact.email}</span>.
+        </p>
+      </div>
+    );
+  }
 
   if (status === 'success') {
     return (
@@ -155,6 +190,7 @@ function ContactForm() {
           <option value="rdf"           className="bg-white">RDF Briquette &amp; BBJP</option>
           <option value="geocell"       className="bg-white">Industrial Geocell Material</option>
           <option value="gasification"  className="bg-white">Gasification Power Plant</option>
+          <option value="wte-system"    className="bg-white">WTE / TPST3R System Inquiry</option>
           <option value="partnership"   className="bg-white">Partnership Inquiry</option>
           <option value="other"         className="bg-white">Other</option>
         </select>
@@ -273,17 +309,19 @@ export default function Contact() {
               );
             })}
 
-            {/* Map placeholder */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-gray-50 h-52 flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-grid-pattern opacity-[0.08]" />
-              <div className="relative z-10 text-center">
-                <div className="w-10 h-10 rounded-xl bg-green-100 border border-green-200 flex items-center justify-center mx-auto mb-3">
-                  <MapPin size={18} className="text-green-600" />
-                </div>
-                <p className="text-sm font-medium text-slate-700">Jakarta, Indonesia</p>
-                <p className="text-xs text-slate-500 mt-1">Pondok Kelapa, Duren Sawit</p>
-                <p className="text-xs text-slate-400 mt-3">Jakarta 13450</p>
-              </div>
+            {/* Map embed */}
+            <div className="rounded-2xl overflow-hidden border border-slate-200 h-52">
+              <iframe
+                title="CWM Office Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.9270!3d-6.2200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTMnMTIuMCJTIDEwNsKwNTUnMzcuMiJF!5e0!3m2!1sen!2sid!4v1234567890"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              />
             </div>
           </AnimatedSection>
 

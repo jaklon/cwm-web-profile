@@ -1,4 +1,4 @@
-import { Eye, Target, Leaf, Lightbulb, Shield, Users, CheckCircle, Lock } from 'lucide-react';
+import { Eye, Target, Leaf, Lightbulb, Shield, Users, CheckCircle, Lock, Building2, FileCheck, ShieldCheck, Mic2, Handshake } from 'lucide-react';
 import SectionHeader from '../ui/SectionHeader';
 import AnimatedSection from '../ui/AnimatedSection';
 import { StaggerContainer, StaggerItem } from '../ui/AnimatedSection';
@@ -6,6 +6,24 @@ import ImagePlaceholder from '../ui/ImagePlaceholder';
 import { company } from '../../data/company';
 
 const VALUE_ICONS = { Leaf, Lightbulb, Shield, Users };
+
+const MILESTONE_ICON_MAP = { Building2, FileCheck, ShieldCheck, Mic2, Handshake, Users };
+
+const MILESTONE_COLORS = {
+  green:   { ring: 'ring-green-200',   bg: 'bg-green-100',   icon: 'text-green-600',   dot: 'bg-green-500',   year: 'text-green-700'   },
+  cyan:    { ring: 'ring-cyan-200',    bg: 'bg-cyan-100',    icon: 'text-cyan-600',    dot: 'bg-cyan-500',    year: 'text-cyan-700'    },
+  emerald: { ring: 'ring-emerald-200', bg: 'bg-emerald-100', icon: 'text-emerald-600', dot: 'bg-emerald-500', year: 'text-emerald-700' },
+  blue:    { ring: 'ring-blue-200',    bg: 'bg-blue-100',    icon: 'text-blue-600',    dot: 'bg-blue-500',    year: 'text-blue-700'    },
+  violet:  { ring: 'ring-violet-200',  bg: 'bg-violet-100',  icon: 'text-violet-600',  dot: 'bg-violet-500',  year: 'text-violet-700'  },
+};
+
+const MILESTONES = [
+  { year: "Feb 2023", label: "Pendirian PT. CWM",   desc: "Akta Notaris No. 28, disahkan Kemenkumham",                           icon: "Building2",   color: "green"   },
+  { year: "Mar 2023", label: "NIB & NPWP",           desc: "Terdaftar OSS, NPWP aktif di KPP Jakarta Duren Sawit",               icon: "FileCheck",   color: "cyan"    },
+  { year: "Jun 2025", label: "PKP Confirmed",        desc: "Dikukuhkan sebagai Pengusaha Kena Pajak",                            icon: "ShieldCheck", color: "emerald" },
+  { year: "Mar 2026", label: "INTEC Partnership",    desc: "Supporting Partner Letter dari INTEC Group Berlin, Jerman",          icon: "Handshake",   color: "blue"    },
+  { year: "Jun 2026", label: "BRIN Enviro Talk",     desc: "Direktur CWM hadir sebagai speaker nasional di BRIN #56",            icon: "Mic2",        color: "violet"  },
+];
 
 const LEGAL_BADGES = [
   { label: 'NIB',  value: company.legal.nib,  icon: CheckCircle },
@@ -30,6 +48,14 @@ export default function About() {
           titleGradient="PT. CWM"
           subtitle="A pioneering industrial waste technology company committed to transforming environmental challenges into sustainable opportunities."
         />
+
+        {/* Tagline strip */}
+        <AnimatedSection className="mb-10 text-center">
+          <p className="text-lg md:text-xl font-semibold text-slate-700 italic">
+            "Dari Sampah Menjadi Solusi,{' '}
+            <span className="text-gradient-green">Dari Inovasi Menjadi Keberlanjutan</span>"
+          </p>
+        </AnimatedSection>
 
         {/* Vision & Mission cards */}
         <div className="grid md:grid-cols-2 gap-6 mb-10">
@@ -140,6 +166,66 @@ export default function About() {
             );
           })}
         </StaggerContainer>
+
+        {/* Company Milestones */}
+        <AnimatedSection className="mb-6">
+          <h3 className="text-center text-xl font-bold font-display text-slate-900 mb-2">
+            Company <span className="text-gradient-green">Milestones</span>
+          </h3>
+          <p className="text-center text-sm text-slate-500 mb-10">
+            Perjalanan PT. CWM dari berdiri hingga kolaborasi global
+          </p>
+        </AnimatedSection>
+
+        {/* Desktop: horizontal timeline — Mobile: vertical stack */}
+        <div className="relative mb-20">
+          {/* Horizontal connector line (desktop only) */}
+          <div className="hidden lg:block absolute top-[2.25rem] left-[calc(10%+1.25rem)] right-[calc(10%+1.25rem)] h-px bg-gradient-to-r from-green-300 via-cyan-300 to-blue-300 pointer-events-none" />
+
+          <StaggerContainer
+            className="flex flex-col lg:flex-row lg:items-start gap-8 lg:gap-0"
+            staggerDelay={0.1}
+            delayChildren={0.1}
+          >
+            {MILESTONES.map((m, i) => {
+              const c = MILESTONE_COLORS[m.color] ?? MILESTONE_COLORS.green;
+              const MIcon = MILESTONE_ICON_MAP[m.icon] ?? Users;
+              return (
+                <StaggerItem key={m.year} className="flex-1 flex flex-col items-center text-center px-3">
+                  {/* Icon circle */}
+                  <div className={`
+                    relative z-10 w-[3.25rem] h-[3.25rem] rounded-2xl mb-3
+                    ${c.bg} ring-4 ${c.ring}
+                    flex items-center justify-center flex-shrink-0
+                    shadow-sm
+                  `}>
+                    <MIcon size={22} className={c.icon} />
+                  </div>
+
+                  {/* Year */}
+                  <span className={`text-xs font-bold uppercase tracking-widest mb-1 ${c.year}`}>
+                    {m.year}
+                  </span>
+
+                  {/* Title */}
+                  <p className="text-sm font-bold text-slate-900 leading-snug mb-1">
+                    {m.label}
+                  </p>
+
+                  {/* Desc */}
+                  <p className="text-xs text-slate-500 leading-relaxed max-w-[160px]">
+                    {m.desc}
+                  </p>
+
+                  {/* Vertical connector for mobile */}
+                  {i < MILESTONES.length - 1 && (
+                    <div className="lg:hidden w-px h-8 bg-gradient-to-b from-slate-300 to-transparent mt-3" />
+                  )}
+                </StaggerItem>
+              );
+            })}
+          </StaggerContainer>
+        </div>
 
         {/* Legal credentials strip */}
         <AnimatedSection>

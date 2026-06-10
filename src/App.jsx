@@ -5,6 +5,8 @@ import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Products from './components/sections/Products';
 import Gallery from './components/sections/Gallery';
+import Partners from './components/sections/Partners';
+import News from './components/sections/News';
 import Management from './components/sections/Management';
 import Legality from './components/sections/Legality';
 import Contact from './components/sections/Contact';
@@ -96,8 +98,16 @@ export default function App() {
           <Products onSelectProduct={setSelectedProduct} />
         </section>
 
+        <section id="partners">
+          <Partners />
+        </section>
+
         <section id="gallery">
           <Gallery />
+        </section>
+
+        <section id="news">
+          <News />
         </section>
 
         <section id="team">
