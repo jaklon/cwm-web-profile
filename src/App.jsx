@@ -8,6 +8,7 @@ import Gallery from './components/sections/Gallery';
 import Partners from './components/sections/Partners';
 import News from './components/sections/News';
 import Management from './components/sections/Management';
+import FeaturedEvents from './components/sections/FeaturedEvents';
 import Legality from './components/sections/Legality';
 import Contact from './components/sections/Contact';
 
@@ -113,6 +114,8 @@ export default function App() {
         <section id="team">
           <Management />
         </section>
+
+        <FeaturedEvents />
 
         <section id="legal">
           <Legality />

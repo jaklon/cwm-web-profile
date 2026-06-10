@@ -12,11 +12,12 @@ const NAV_LINKS = [
   { label: 'Galeri',    href: '#gallery' },
   { label: 'Berita',    href: '#news' },
   { label: 'Tim',       href: '#team' },
+  { label: 'Acara',     href: '#events' },
   { label: 'Legalitas', href: '#legal' },
   { label: 'Kontak',    href: '#contact' },
 ];
 
-const SECTION_IDS = ['home', 'about', 'services', 'partners', 'gallery', 'news', 'team', 'legal', 'contact'];
+const SECTION_IDS = ['home', 'about', 'services', 'partners', 'gallery', 'news', 'team', 'events', 'legal', 'contact'];
 
 export default function Navbar() {
   const [scrolled, setScrolled]    = useState(false);
