@@ -16,7 +16,7 @@ export const news = [
     topic:
       "Advanced Gasification untuk Landfill Mining, Sampah Residu dan Energi Bersih",
     organizer: "BRIN × ECADIN",
-    image: null, // → "/images/news/brin-enviro-talk-56.jpg"
+    image: '/images/events/enviro-talk-56.jpg',
     zoomId: "928 7886 6795",
     zoomPassword: "903704",
     youtubeChannel: "youtube.com/@prltbbrin",
