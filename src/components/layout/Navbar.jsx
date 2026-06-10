@@ -112,7 +112,7 @@ export default function Navbar() {
                         : 'text-slate-600 hover:text-green-600'}
                     `}
                   >
-                    {label}
+                    <span className="relative z-10">{label}</span>
                     {isActive && (
                       <motion.div
                         layoutId="nav-active"
