@@ -1,4 +1,5 @@
-import { Leaf, MapPin, Phone, Mail, Globe, ArrowUpRight } from 'lucide-react';
+import { MapPin, Phone, Mail, Globe, ArrowUpRight } from 'lucide-react';
+import cwmLogo from '../../assets/cwm_logo.png';
 import { company } from '../../data/company';
 
 const NAV_LINKS = [
@@ -50,15 +51,11 @@ export default function Footer() {
               className="flex items-center gap-2.5 mb-5 group"
               aria-label="CWM Home"
             >
-              <div className="
-                w-10 h-10 rounded-xl
-                bg-gradient-to-br from-green-500 to-emerald-600
-                flex items-center justify-center
-                shadow-glow-green group-hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]
-                transition-shadow duration-300
-              ">
-                <Leaf size={20} className="text-white" />
-              </div>
+              <img
+                src={cwmLogo}
+                alt="PT. Circular Waste Management"
+                className="h-12 w-auto object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-300"
+              />
               <div className="leading-none">
                 <span className="block text-xl font-bold font-display text-gradient-green">
                   CWM
