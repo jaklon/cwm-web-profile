@@ -62,8 +62,8 @@ export const company = {
     address:
       "Jl. Lembah Nyiur Raya Blok K9 No. 25, Pondok Kelapa, Duren Sawit, Jakarta 13450, Indonesia",
     phone: ["021-86942722", "08111126551"],
-    email: "ptcircularwastemanagement@gmail.com",
-    website: "www.circularwastemanagement.co.id",
+    email: "info@circularwaste.id",
+    website: "circularwaste.id",
   },
   stats: [
     { value: 400, suffix: "T/day", label: "Max Processing Capacity" },
