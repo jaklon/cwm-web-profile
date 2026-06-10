@@ -1,5 +1,5 @@
 import { Mic2, Globe, CheckCircle2, MessageSquare, Video, Lock, Calendar, Clock } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { compareByDepth, motion } from 'framer-motion';
 import SectionHeader from '../ui/SectionHeader';
 import AnimatedSection from '../ui/AnimatedSection';
 import { news } from '../../data/news';
