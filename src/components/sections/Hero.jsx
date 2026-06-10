@@ -26,6 +26,14 @@ const itemVariants = {
   visible:  { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.1, 0.25, 1] } },
 };
 
+// 4 product images untuk mosaic grid kanan
+const PRODUCT_IMAGES = [
+  { src: '/images/products/bsf-maggot-closeup.jpg',       alt: 'BSF — Budidaya Maggot',            label: 'BSF Organik'   },
+  { src: '/images/products/rdf-briquette-product.jpg',    alt: 'RDF/BBJP — Briket Bahan Bakar',    label: 'RDF/BBJP'      },
+  { src: '/images/products/geocell-field-installation.jpg', alt: 'Geocell — Infrastruktur Jalan', label: 'Geocell'       },
+  { src: '/images/products/gasification-plant-render.jpg', alt: 'Gasifikasi — Pembangkit Listrik', label: 'Gasifikasi'   },
+];
+
 function scrollTo(href) {
   const el = document.querySelector(href);
   if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -49,7 +57,7 @@ export default function Hero() {
       <div className="aurora-blob w-[160px] h-[160px] sm:w-[400px] sm:h-[400px] bg-emerald-400/15 bottom-0 left-1/3"
            style={{ animationDelay: '6s' }} />
 
-      {/* Floating particles — hidden on mobile for performance */}
+      {/* Floating particles */}
       <div className="hidden sm:block absolute inset-0 pointer-events-none">
       {PARTICLES.map((p) => (
         <motion.div
@@ -160,20 +168,42 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right — image + stats */}
+          {/* Right — product image mosaic + stats */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
             className="space-y-4"
           >
-            {/* Hero image */}
-            <div className="rounded-2xl overflow-hidden h-64 sm:h-80 lg:h-auto">
-              <img
-                src="/src/assets/hero.png"
-                alt="PT. CWM Industrial Facility"
-                className="w-full h-full object-cover rounded-2xl shadow-xl"
-              />
+            {/* 2x2 product image mosaic */}
+            <div className="grid grid-cols-2 gap-3 rounded-2xl overflow-hidden">
+              {PRODUCT_IMAGES.map((img, i) => (
+                <motion.div
+                  key={img.alt}
+                  className="relative overflow-hidden rounded-xl group cursor-pointer"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.6 + i * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-32 sm:h-40 object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  {/* Overlay label */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <span className="
+                    absolute bottom-2 left-2 right-2
+                    text-[10px] font-semibold text-white
+                    bg-black/40 backdrop-blur-sm rounded-md px-2 py-1
+                    opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                    text-center
+                  ">
+                    {img.label}
+                  </span>
+                </motion.div>
+              ))}
             </div>
 
             {/* Compact stats card */}
