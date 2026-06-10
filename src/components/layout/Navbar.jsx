@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Leaf, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import cwmLogo from '../../assets/cwm_logo.png';
 
 const NAV_LINKS = [
   { label: 'Home',     href: '#home' },
@@ -76,15 +77,11 @@ export default function Navbar() {
               className="flex items-center gap-2.5 group"
               aria-label="CWM Home"
             >
-              <div className="
-                w-9 h-9 rounded-xl
-                bg-gradient-to-br from-green-500 to-emerald-600
-                flex items-center justify-center
-                shadow-glow-green group-hover:shadow-[0_0_16px_rgba(34,197,94,0.35)]
-                transition-shadow duration-300
-              ">
-                <Leaf size={18} className="text-white" />
-              </div>
+              <img
+                src={cwmLogo}
+                alt="PT. Circular Waste Management"
+                className="h-10 w-auto object-contain drop-shadow-sm group-hover:scale-105 transition-transform duration-300"
+              />
               <div className="leading-none">
                 <span className="block text-lg font-bold font-display text-gradient-green">
                   CWM
