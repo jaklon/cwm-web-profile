@@ -18,6 +18,8 @@ function DynamicIcon({ name, ...props }) {
 }
 
 function OverviewTab({ product, accent }) {
+  const [imgLoaded, setImgLoaded] = useState(false);
+
   return (
     <motion.div
       key="overview"
@@ -25,12 +27,57 @@ function OverviewTab({ product, accent }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.3 }}
-      className="space-y-6"
+      className="space-y-5"
     >
+      {/* ── Dual-image row: product photo (kiri) + facility photo (kanan) ── */}
+      <div className="grid grid-cols-2 gap-3">
+        {/* Main product image */}
+        {product.productImage && (
+          <div className="relative rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+            <img
+              src={product.productImage}
+              alt={`${product.title} — Produk`}
+              className="w-full h-36 object-cover"
+            />
+            <span className="
+              absolute bottom-2 left-2
+              text-[10px] font-semibold text-white
+              bg-black/50 backdrop-blur-sm rounded px-1.5 py-0.5
+            ">
+              Produk
+            </span>
+          </div>
+        )}
+
+        {/* Facility / system image */}
+        {product.facilityImage && (
+          <div className="relative rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800">
+            <img
+              src={product.facilityImage}
+              alt={`${product.title} — Fasilitas`}
+              onLoad={() => setImgLoaded(true)}
+              className={`w-full h-36 object-cover transition-opacity duration-300 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+            />
+            {!imgLoaded && (
+              <div className="absolute inset-0 bg-slate-200 dark:bg-slate-700 animate-pulse" />
+            )}
+            <span className="
+              absolute bottom-2 left-2
+              text-[10px] font-semibold text-white
+              bg-black/50 backdrop-blur-sm rounded px-1.5 py-0.5
+            ">
+              Fasilitas
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* Description */}
       <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
         {product.description}
       </p>
 
+      {/* Highlights */}
       <div>
         <h4 className="text-sm font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 mb-4">
           Keunggulan Utama
@@ -70,7 +117,6 @@ function StagesTab({ product, accent }) {
         <div className="flex items-start gap-0">
           {product.stages.map((stage, i) => (
             <div key={i} className="flex-1 flex flex-col items-center">
-              {/* connector line */}
               <div className="flex items-center w-full mb-4">
                 <div className={`h-px flex-1 ${i === 0 ? 'opacity-0' : accent.connector}`} />
                 <motion.div
@@ -169,9 +215,7 @@ export default function ProductModal({ product, onClose }) {
   const accent = accentMap[product.bgAccent] ?? accentMap.green;
 
   const handleKey = useCallback(
-    (e) => {
-      if (e.key === 'Escape') onClose();
-    },
+    (e) => { if (e.key === 'Escape') onClose(); },
     [onClose]
   );
 
@@ -186,7 +230,6 @@ export default function ProductModal({ product, onClose }) {
 
   return (
     <AnimatePresence>
-      {/* Backdrop */}
       <motion.div
         key="backdrop"
         className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
@@ -198,7 +241,6 @@ export default function ProductModal({ product, onClose }) {
       >
         <div className="absolute inset-0 bg-slate-900/40 backdrop-blur-md" />
 
-        {/* Modal */}
         <motion.div
           key="modal"
           className="relative z-10 w-full max-w-2xl max-h-[90vh] flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xl"
@@ -208,7 +250,7 @@ export default function ProductModal({ product, onClose }) {
           transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
           onClick={(e) => e.stopPropagation()}
         >
-          {/* Gradient top bar */}
+          {/* Top gradient bar */}
           <div className={`h-1 w-full bg-gradient-to-r ${product.color}`} />
 
           {/* Header */}
@@ -261,15 +303,9 @@ export default function ProductModal({ product, onClose }) {
           {/* Tab content */}
           <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6 bg-white dark:bg-slate-900">
             <AnimatePresence mode="wait">
-              {activeTab === 0 && (
-                <OverviewTab key="overview" product={product} accent={accent} />
-              )}
-              {activeTab === 1 && (
-                <StagesTab key="stages" product={product} accent={accent} />
-              )}
-              {activeTab === 2 && (
-                <SpecsTab key="specs" product={product} accent={accent} />
-              )}
+              {activeTab === 0 && <OverviewTab key="overview" product={product} accent={accent} />}
+              {activeTab === 1 && <StagesTab  key="stages"   product={product} accent={accent} />}
+              {activeTab === 2 && <SpecsTab   key="specs"    product={product} accent={accent} />}
             </AnimatePresence>
           </div>
         </motion.div>
