@@ -33,7 +33,7 @@ function scrollTo(href) {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-cyan-50">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-emerald-50 via-white to-cyan-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950">
 
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 bg-grid-pattern opacity-[0.06]" />
@@ -42,14 +42,15 @@ export default function Hero() {
       <div className="noise-overlay absolute inset-0 pointer-events-none" />
 
       {/* Aurora blobs */}
-      <div className="aurora-blob w-[600px] h-[600px] bg-green-400/20 -top-32 -left-32"
+      <div className="aurora-blob w-[200px] h-[200px] sm:w-[600px] sm:h-[600px] bg-green-400/20 -top-32 -left-32"
            style={{ animationDelay: '0s' }} />
-      <div className="aurora-blob w-[500px] h-[500px] bg-cyan-400/15 top-1/2 -right-48"
+      <div className="aurora-blob w-[180px] h-[180px] sm:w-[500px] sm:h-[500px] bg-cyan-400/15 top-1/2 -right-48"
            style={{ animationDelay: '3s' }} />
-      <div className="aurora-blob w-[400px] h-[400px] bg-emerald-400/15 bottom-0 left-1/3"
+      <div className="aurora-blob w-[160px] h-[160px] sm:w-[400px] sm:h-[400px] bg-emerald-400/15 bottom-0 left-1/3"
            style={{ animationDelay: '6s' }} />
 
-      {/* Floating particles */}
+      {/* Floating particles — hidden on mobile for performance */}
+      <div className="hidden sm:block absolute inset-0 pointer-events-none">
       {PARTICLES.map((p) => (
         <motion.div
           key={p.id}
@@ -74,6 +75,7 @@ export default function Hero() {
           }}
         />
       ))}
+      </div>
 
       {/* Main content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20">
@@ -93,25 +95,25 @@ export default function Hero() {
                 bg-green-50 border border-green-200 text-green-700
               ">
                 <Recycle size={14} className="animate-spin-slow" />
-                Advance in Waste Processing Innovation
+                Inovasi Terdepan dalam Pengolahan Sampah
               </span>
             </motion.div>
 
             {/* Heading */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold font-display leading-[1.1] mb-6 text-slate-900"
+              className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold font-display leading-[1.1] mb-6 text-slate-900 dark:text-slate-100"
             >
-              Transforming Waste Into{' '}
+              Mengubah Sampah Menjadi{' '}
               <span className="text-gradient-green block sm:inline">
-                Value &amp; Clean Energy
+                Nilai &amp; Energi Bersih
               </span>
             </motion.h1>
 
             {/* Mission */}
             <motion.p
               variants={itemVariants}
-              className="text-slate-600 text-lg leading-relaxed mb-8 max-w-lg"
+              className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8 max-w-lg"
             >
               {company.mission}
             </motion.p>
@@ -119,20 +121,20 @@ export default function Hero() {
             {/* CTA buttons */}
             <motion.div
               variants={itemVariants}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row flex-wrap gap-3"
             >
               <button
                 onClick={() => scrollTo('#services')}
                 className="btn-primary"
               >
-                Explore Solutions
+                Jelajahi Solusi
                 <ArrowRight size={16} />
               </button>
               <button
                 onClick={() => scrollTo('#contact')}
                 className="btn-outline"
               >
-                Get in Touch
+                Hubungi Kami
               </button>
             </motion.div>
 
@@ -142,18 +144,18 @@ export default function Hero() {
               className="mt-10 flex flex-wrap items-center gap-4"
             >
               {[
-                { label: 'NIB Certified', dot: 'bg-green-500' },
-                { label: 'PKP Registered', dot: 'bg-cyan-500' },
-                { label: 'Est. 2023', dot: 'bg-emerald-500' },
+                { label: 'Bersertifikat NIB', dot: 'bg-green-500' },
+                { label: 'Terdaftar PKP', dot: 'bg-cyan-500' },
+                { label: 'Berdiri 2023', dot: 'bg-emerald-500' },
               ].map(({ label, dot }) => (
-                <div key={label} className="flex items-center gap-2 text-sm text-slate-600">
+                <div key={label} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                   <span className={`w-1.5 h-1.5 rounded-full ${dot}`} />
                   {label}
                 </div>
               ))}
-              <div className="flex items-center gap-2 text-sm text-slate-600">
+              <div className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
-                Supported by INTEC Berlin
+                Didukung oleh INTEC Berlin
               </div>
             </motion.div>
           </motion.div>
@@ -166,7 +168,7 @@ export default function Hero() {
             className="space-y-4"
           >
             {/* Hero image */}
-            <div className="rounded-2xl overflow-hidden">
+            <div className="rounded-2xl overflow-hidden h-64 sm:h-80 lg:h-auto">
               <img
                 src="/src/assets/hero.png"
                 alt="PT. CWM Industrial Facility"
@@ -178,8 +180,8 @@ export default function Hero() {
             <div className="relative glass-card rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-5">
                 <Zap size={14} className="text-green-600" />
-                <span className="text-xs font-semibold text-slate-600 uppercase tracking-widest">
-                  Company at a Glance
+                <span className="text-xs font-semibold text-slate-600 dark:text-slate-400 uppercase tracking-widest">
+                  Sekilas Perusahaan
                 </span>
               </div>
 
@@ -195,13 +197,13 @@ export default function Hero() {
                 ))}
               </div>
 
-              <div className="mt-5 pt-4 border-t border-slate-100 flex items-center gap-2.5">
+              <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2.5">
                 <div className="w-7 h-7 rounded-lg bg-green-100 flex items-center justify-center">
                   <Recycle size={13} className="text-green-600" />
                 </div>
-                <p className="text-xs text-slate-500 leading-relaxed">
-                  Circular economy solutions for a{' '}
-                  <span className="text-green-600 font-medium">cleaner, sustainable future</span>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                  Solusi ekonomi sirkular untuk{' '}
+                  <span className="text-green-600 font-medium">masa depan yang lebih bersih & berkelanjutan</span>
                 </p>
               </div>
             </div>
@@ -213,17 +215,17 @@ export default function Hero() {
       {/* Scroll indicator */}
       <motion.button
         onClick={() => scrollTo('#about')}
-        aria-label="Scroll to About"
+        aria-label="Gulir ke Tentang"
         className="
           absolute bottom-8 left-1/2 -translate-x-1/2 z-10
-          flex flex-col items-center gap-2 text-slate-500
+          flex flex-col items-center gap-2 text-slate-500 dark:text-slate-400
           hover:text-green-600 transition-colors duration-300
         "
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.4, duration: 0.6 }}
       >
-        <span className="text-xs font-medium tracking-widest uppercase">Scroll</span>
+        <span className="text-xs font-medium tracking-widest uppercase">Gulir</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}

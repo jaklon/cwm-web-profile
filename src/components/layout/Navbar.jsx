@@ -2,19 +2,21 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import cwmLogo from '../../assets/cwm_logo.png';
+import ThemeToggle from '../ui/ThemeToggle';
 
 const NAV_LINKS = [
-  { label: 'Home',     href: '#home' },
-  { label: 'About',    href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Partners', href: '#partners' },
-  { label: 'News',     href: '#news' },
-  { label: 'Team',     href: '#team' },
-  { label: 'Legal',    href: '#legal' },
-  { label: 'Contact',  href: '#contact' },
+  { label: 'Beranda',   href: '#home' },
+  { label: 'Tentang',   href: '#about' },
+  { label: 'Layanan',   href: '#services' },
+  { label: 'Mitra',     href: '#partners' },
+  { label: 'Galeri',    href: '#gallery' },
+  { label: 'Berita',    href: '#news' },
+  { label: 'Tim',       href: '#team' },
+  { label: 'Legalitas', href: '#legal' },
+  { label: 'Kontak',    href: '#contact' },
 ];
 
-const SECTION_IDS = ['home', 'about', 'services', 'partners', 'news', 'team', 'legal', 'contact'];
+const SECTION_IDS = ['home', 'about', 'services', 'partners', 'gallery', 'news', 'team', 'legal', 'contact'];
 
 export default function Navbar() {
   const [scrolled, setScrolled]    = useState(false);
@@ -63,7 +65,7 @@ export default function Navbar() {
           fixed top-0 left-0 right-0 z-40
           transition-all duration-300
           ${scrolled
-            ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-sm'
+            ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-b border-slate-200 dark:border-slate-700/50 shadow-sm'
             : 'bg-transparent'}
         `}
         initial={{ y: -80, opacity: 0 }}
@@ -77,7 +79,7 @@ export default function Navbar() {
             <button
               onClick={() => scrollTo('#home')}
               className="flex items-center gap-2.5 group"
-              aria-label="CWM Home"
+              aria-label="Beranda CWM"
             >
               <img
                 src={cwmLogo}
@@ -88,7 +90,7 @@ export default function Navbar() {
                 <span className="block text-lg font-bold font-display text-gradient-green">
                   CWM
                 </span>
-                <span className="block text-[10px] text-slate-500 tracking-wider uppercase">
+                <span className="block text-[10px] text-slate-500 dark:text-slate-400 tracking-wider uppercase">
                   Circular Waste Management
                 </span>
               </div>
@@ -108,14 +110,14 @@ export default function Navbar() {
                       transition-colors duration-200
                       ${isActive
                         ? 'text-green-600'
-                        : 'text-slate-600 hover:text-green-600'}
+                        : 'text-slate-600 dark:text-slate-200 hover:text-green-600 dark:hover:text-green-400'}
                     `}
                   >
                     <span className="relative z-10">{label}</span>
                     {isActive && (
                       <motion.div
                         layoutId="nav-active"
-                        className="absolute inset-0 rounded-lg bg-green-50 border border-green-200"
+                        className="absolute inset-0 rounded-lg bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800"
                         transition={{ type: 'spring', stiffness: 380, damping: 32 }}
                       />
                     )}
@@ -124,12 +126,14 @@ export default function Navbar() {
               })}
             </div>
 
-            {/* CTA + hamburger */}
+            {/* CTA + theme toggle + hamburger */}
             <div className="flex items-center gap-3">
+              <ThemeToggle />
+
               <button
                 onClick={() => scrollTo('#contact')}
                 className="
-                  hidden sm:inline-flex items-center gap-2
+                  hidden lg:inline-flex items-center gap-2
                   px-4 py-2 rounded-xl text-sm font-semibold text-white
                   bg-gradient-to-r from-green-600 to-emerald-600
                   hover:from-green-500 hover:to-emerald-500
@@ -137,19 +141,19 @@ export default function Navbar() {
                   transition-all duration-300 active:scale-95
                 "
               >
-                Get in Touch
+                Hubungi Kami
                 <ArrowRight size={14} />
               </button>
 
               <button
                 onClick={() => setMenuOpen((v) => !v)}
-                aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+                aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'}
                 className="
                   lg:hidden w-10 h-10 rounded-xl
-                  bg-slate-100 hover:bg-slate-200
-                  border border-slate-200
+                  bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700
+                  border border-slate-200 dark:border-slate-700
                   flex items-center justify-center
-                  text-slate-700 transition-colors
+                  text-slate-700 dark:text-slate-300 transition-colors
                 "
               >
                 {menuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -175,8 +179,8 @@ export default function Navbar() {
             <motion.div
               key="drawer"
               className="
-                fixed top-16 left-0 right-0 z-35 lg:hidden
-                bg-white border-b border-slate-200
+                fixed top-16 left-0 right-0 z-40 lg:hidden
+                bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700
                 shadow-xl
               "
               initial={{ opacity: 0, y: -16 }}
@@ -184,6 +188,11 @@ export default function Navbar() {
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
             >
+              {/* Drawer header with ThemeToggle */}
+              <div className="flex items-center px-4 py-3 border-b border-slate-100 dark:border-slate-800">
+                <ThemeToggle className="ml-auto" />
+              </div>
+
               <div className="px-4 py-4 space-y-1">
                 {NAV_LINKS.map(({ label, href }, i) => {
                   const id = href.replace('#', '');
@@ -199,8 +208,8 @@ export default function Navbar() {
                         w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium
                         transition-colors duration-200 text-left
                         ${isActive
-                          ? 'bg-green-50 text-green-600 border border-green-200'
-                          : 'text-slate-600 hover:bg-green-50 hover:text-green-600'}
+                          ? 'bg-green-50 dark:bg-green-950/30 text-green-600 border border-green-200 dark:border-green-800'
+                          : 'text-slate-600 dark:text-slate-300 hover:bg-green-50 dark:hover:bg-green-950/20 hover:text-green-600'}
                       `}
                     >
                       {isActive && (
@@ -221,7 +230,7 @@ export default function Navbar() {
                       shadow-sm transition-all duration-300
                     "
                   >
-                    Get in Touch
+                    Hubungi Kami
                     <ArrowRight size={14} />
                   </button>
                 </div>

@@ -6,7 +6,7 @@ export const partners = [
     country: "Germany",
     countryFlag: "🇩🇪",
     logo: null, // → "/images/partners/intec-logo.png"
-    type: "Strategic Technology Partner",
+    type: "Mitra Teknologi Strategis",
     since: "2026",
     letterDate: "23 Maret 2026",
     letterSignatory: "Afsahi Badr — Director/CEO, INTEC Group Berlin",
@@ -18,12 +18,12 @@ export const partners = [
       { label: "Pengurangan Emisi", value: "±671.000 ton CO₂e/tahun", icon: "Wind" },
       { label: "Nilai Karbon", value: "Rp 100–200 Miliar/tahun", icon: "TrendingUp" },
       { label: "Umur Proyek", value: "20 – 25 Tahun", icon: "Calendar" },
-      { label: "Technology Readiness", value: "TRL 9 — Fully Proven", icon: "ShieldCheck" },
+      { label: "Kesiapan Teknologi", value: "TRL 9 — Terverifikasi Penuh", icon: "ShieldCheck" },
     ],
     system: {
       title: "Sistem WTE Terintegrasi CWM × INTEC",
       subtitle:
-        "Waste Management → Resource Recovery → Energy Production → Carbon Economy",
+        "Pengelolaan Sampah → Pemulihan Sumber Daya → Produksi Energi → Ekonomi Karbon",
       stages: [
         {
           step: 1,

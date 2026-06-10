@@ -9,7 +9,7 @@ export default function SectionHeader({
   className = '',
 }) {
   return (
-    <AnimatedSection className={`mb-16 ${centered ? 'text-center' : ''} ${className}`}>
+    <AnimatedSection className={`mb-10 lg:mb-16 ${centered ? 'text-center' : ''} ${className}`}>
       {badge && (
         <div className={`inline-flex items-center gap-2 mb-4 ${centered ? 'justify-center' : ''}`}>
           <span className="
@@ -23,7 +23,7 @@ export default function SectionHeader({
         </div>
       )}
 
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display leading-tight mb-4 text-slate-900">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display leading-tight mb-4 text-slate-900 dark:text-slate-100">
         {title}{' '}
         {titleGradient && (
           <span className="text-gradient-green">{titleGradient}</span>
@@ -31,7 +31,7 @@ export default function SectionHeader({
       </h2>
 
       {subtitle && (
-        <p className={`text-slate-600 text-lg leading-relaxed max-w-2xl ${centered ? 'mx-auto' : ''}`}>
+        <p className={`text-slate-600 dark:text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl ${centered ? 'mx-auto' : ''}`}>
           {subtitle}
         </p>
       )}

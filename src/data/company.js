@@ -1,31 +1,31 @@
 export const company = {
   name: "PT. Circular Waste Management",
   shortName: "CWM",
-  tagline: "advance in waste processing innovation",
+  tagline: "Inovasi Terdepan dalam Pengolahan Sampah",
   mission:
-    "To create a cleaner and more sustainable future through innovative waste management solutions that reduce environmental impact",
+    "Menciptakan masa depan yang lebih bersih dan berkelanjutan melalui solusi pengelolaan sampah inovatif yang mengurangi dampak lingkungan",
   vision:
-    "To lead the global transition to a circular economy by promoting waste reduction, recycling, and resource recovery across industries",
+    "Memimpin transisi global menuju ekonomi sirkular dengan mendorong pengurangan sampah, daur ulang, dan pemulihan sumber daya di berbagai industri",
   values: [
     {
-      title: "Sustainability",
+      title: "Keberlanjutan",
       icon: "Leaf",
-      desc: "Prioritizing eco-friendly solutions in every process",
+      desc: "Mengutamakan solusi ramah lingkungan dalam setiap proses",
     },
     {
-      title: "Innovation",
+      title: "Inovasi",
       icon: "Lightbulb",
-      desc: "Cutting-edge technology meets circular economy principles",
+      desc: "Teknologi mutakhir bertemu dengan prinsip ekonomi sirkular",
     },
     {
-      title: "Responsibility",
+      title: "Tanggung Jawab",
       icon: "Shield",
-      desc: "Accountable to communities, environment, and stakeholders",
+      desc: "Bertanggung jawab kepada masyarakat, lingkungan, dan pemangku kepentingan",
     },
     {
-      title: "Community",
+      title: "Komunitas",
       icon: "Users",
-      desc: "Building partnerships that empower local ecosystems",
+      desc: "Membangun kemitraan yang memberdayakan ekosistem lokal",
     },
   ],
   legal: {
@@ -66,9 +66,9 @@ export const company = {
     website: "circularwaste.id",
   },
   stats: [
-    { value: 1000, suffix: " T/day", label: "Max Processing Capacity" },
-    { value: 4, suffix: " Products", label: "Industrial Solutions" },
-    { value: 2023, suffix: "", label: "Year Founded" },
-    { value: 5, suffix: " Experts", label: "Core Management Team" },
+    { value: 1000, suffix: " T/hari", label: "Kapasitas Pengolahan Maks." },
+    { value: 4, suffix: " Produk", label: "Solusi Industri" },
+    { value: 2023, suffix: "", label: "Tahun Berdiri" },
+    { value: 5, suffix: " Ahli", label: "Tim Manajemen Inti" },
   ],
 };

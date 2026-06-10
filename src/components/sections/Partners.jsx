@@ -22,7 +22,7 @@ export default function Partners() {
   const partner = partners[0];
 
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-white dark:bg-slate-900 overflow-hidden">
 
       {/* Background accents */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-green-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -31,13 +31,13 @@ export default function Partners() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <SectionHeader
-          badge="Strategic Partners"
-          title="Our"
-          titleGradient="Partners"
+          badge="Mitra Strategis"
+          title="Mitra"
+          titleGradient="Kami"
           subtitle="Berkolaborasi dengan mitra teknologi global untuk menghadirkan solusi pengelolaan sampah kelas dunia."
         />
 
-        {/* Featured Partner Card */}
+        {/* Featured Partner Card — intentionally dark bg, no change needed */}
         <AnimatedSection direction="up" delay={0.1} className="mb-8">
           <div className="
             relative rounded-3xl overflow-hidden
@@ -50,7 +50,7 @@ export default function Partners() {
             <div className="grid lg:grid-cols-5 gap-0">
 
               {/* Left column — identity (2/5) */}
-              <AnimatedSection direction="right" delay={0.2} className="lg:col-span-2 p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/10">
+              <AnimatedSection direction="right" delay={0.2} className="lg:col-span-2 p-5 sm:p-8 lg:p-10 border-b lg:border-b-0 lg:border-r border-white/10">
 
                 {/* Country + type */}
                 <div className="flex items-center gap-3 mb-6">
@@ -74,7 +74,7 @@ export default function Partners() {
                   {partner.name}
                 </h3>
                 <p className="text-xs text-slate-400 mb-6 tracking-wide">
-                  Partner since {partner.since}
+                  Bermitra sejak {partner.since}
                 </p>
 
                 {/* Description */}
@@ -103,7 +103,7 @@ export default function Partners() {
                   <LucideIcons.FileCheck size={16} className="text-green-400 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-[11px] font-bold uppercase tracking-widest text-green-400 mb-1">
-                      Supporting Partner Letter
+                      Surat Dukungan Mitra
                     </p>
                     <p className="text-xs text-slate-400 leading-relaxed">
                       {partner.letterSignatory}
@@ -114,10 +114,10 @@ export default function Partners() {
               </AnimatedSection>
 
               {/* Right column — WTE system stepper (3/5) */}
-              <AnimatedSection direction="left" delay={0.3} className="lg:col-span-3 p-8 lg:p-10">
+              <AnimatedSection direction="left" delay={0.3} className="lg:col-span-3 p-5 sm:p-8 lg:p-10">
                 <div className="mb-6">
                   <p className="text-xs font-bold uppercase tracking-widest text-green-400 mb-1">
-                    Integrated System
+                    Sistem Terintegrasi
                   </p>
                   <h4 className="text-lg font-bold text-white leading-snug">
                     {partner.system.title}
@@ -150,7 +150,7 @@ export default function Partners() {
                         <div className={`pb-${isLast ? '0' : '5'} pt-1 min-w-0`}>
                           <div className="flex items-center gap-2 mb-1">
                             <span className="text-[10px] font-bold text-green-400 uppercase tracking-widest">
-                              Step {stage.step}
+                              Tahap {stage.step}
                             </span>
                           </div>
                           <h5 className="text-sm font-bold text-white mb-1">{stage.title}</h5>
@@ -177,7 +177,7 @@ export default function Partners() {
               <StaggerItem key={metric.label}>
                 <div className="
                   relative flex items-center gap-4 p-5 rounded-2xl
-                  bg-white border border-slate-200 shadow-sm
+                  bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm
                   hover:-translate-y-1 hover:shadow-md
                   transition-all duration-300
                 ">
@@ -188,10 +188,10 @@ export default function Partners() {
                     <Icon name={metric.icon} size={20} className={accent.icon} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[11px] text-slate-500 uppercase tracking-wide mb-0.5">
+                    <p className="text-[11px] text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-0.5">
                       {metric.label}
                     </p>
-                    <p className="text-sm font-bold text-slate-900 leading-snug">
+                    <p className="text-sm font-bold text-slate-900 dark:text-slate-100 leading-snug">
                       {metric.value}
                     </p>
                   </div>
@@ -201,18 +201,18 @@ export default function Partners() {
           })}
         </StaggerContainer>
 
-        {/* Supporting Partner Letter notice bar */}
+        {/* Surat Dukungan Mitra notice bar */}
         <AnimatedSection delay={0.2}>
-          <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-green-50 border border-green-200">
+          <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800">
             <div className="w-9 h-9 rounded-xl bg-green-100 border border-green-200 flex items-center justify-center flex-shrink-0">
               <LucideIcons.ShieldCheck size={18} className="text-green-600" />
             </div>
-            <p className="text-sm text-slate-700 leading-relaxed">
-              <span className="font-semibold text-green-700">Supporting Partner Letter</span>
+            <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              <span className="font-semibold text-green-700 dark:text-green-400">Surat Dukungan Mitra</span>
               {' '}diterima dari{' '}
-              <span className="font-medium text-slate-900">{partner.letterSignatory}</span>
+              <span className="font-medium text-slate-900 dark:text-slate-100">{partner.letterSignatory}</span>
               {' '}pada{' '}
-              <span className="font-medium text-slate-900">{partner.letterDate}</span>
+              <span className="font-medium text-slate-900 dark:text-slate-100">{partner.letterDate}</span>
             </p>
           </div>
         </AnimatedSection>

@@ -52,7 +52,7 @@ function ProductCard({ product, onSelect }) {
     <div
       className={`
         relative flex flex-col h-full
-        bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm
+        bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm
         transition-all duration-300 cursor-pointer group
         hover:-translate-y-2 hover:shadow-xl hover:border-green-300 ${accent.glow}
       `}
@@ -60,13 +60,13 @@ function ProductCard({ product, onSelect }) {
       role="button"
       tabIndex={0}
       onKeyDown={(e) => e.key === 'Enter' && onSelect(product)}
-      aria-label={`View details for ${product.title}`}
+      aria-label={`Lihat detail ${product.title}`}
     >
       {/* Product image */}
       <div className="h-44 overflow-hidden">
         <ImagePlaceholder
           src={product.productImage}
-          label={`${product.title} — Facility Photo`}
+          label={`${product.title} — Foto Fasilitas`}
           aspectRatio="16/9"
           className="rounded-none h-44"
         />
@@ -96,10 +96,10 @@ function ProductCard({ product, onSelect }) {
         </div>
 
         {/* Title & subtitle */}
-        <h3 className="text-lg font-bold font-display text-slate-900 mb-1 leading-tight">
+        <h3 className="text-lg font-bold font-display text-slate-900 dark:text-slate-100 mb-1 leading-tight">
           {product.title}
         </h3>
-        <p className="text-xs text-slate-500 mb-3">{product.subtitle}</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400 mb-3">{product.subtitle}</p>
 
         {/* Capacity badge */}
         <div className={`
@@ -114,7 +114,7 @@ function ProductCard({ product, onSelect }) {
         {/* Highlights */}
         <ul className="space-y-2 flex-1 mb-6">
           {product.highlights.slice(0, 3).map((h) => (
-            <li key={h} className="flex items-center gap-2.5 text-sm text-slate-700">
+            <li key={h} className="flex items-center gap-2.5 text-sm text-slate-700 dark:text-slate-300">
               <CheckCircle2 size={14} className={`flex-shrink-0 ${accent.check}`} />
               {h}
             </li>
@@ -126,14 +126,14 @@ function ProductCard({ product, onSelect }) {
           className={`
             w-full flex items-center justify-center gap-2
             py-2.5 rounded-xl text-sm font-semibold
-            bg-slate-50 border border-slate-200
+            bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700
             hover:bg-gradient-to-r ${accent.top}
             hover:border-transparent hover:text-white
-            text-slate-600 transition-all duration-300
+            text-slate-600 dark:text-slate-400 transition-all duration-300
           `}
           onClick={(e) => { e.stopPropagation(); onSelect(product); }}
         >
-          View Details
+          Lihat Detail
           <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
         </button>
       </div>
@@ -143,7 +143,7 @@ function ProductCard({ product, onSelect }) {
 
 export default function Products({ onSelectProduct }) {
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-white dark:bg-slate-900 overflow-hidden">
 
       {/* Background accents */}
       <div className="absolute top-1/2 left-0 w-80 h-80 bg-green-500/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2" />
@@ -152,13 +152,13 @@ export default function Products({ onSelectProduct }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <SectionHeader
-          badge="Our Solutions"
-          title="Industrial Waste"
-          titleGradient="Processing Products"
-          subtitle="Four cutting-edge product lines designed to convert every waste stream into valuable resources or clean energy."
+          badge="Solusi Kami"
+          title="Pengolahan Sampah"
+          titleGradient="Industri"
+          subtitle="Empat lini produk terdepan yang dirancang untuk mengubah setiap aliran sampah menjadi sumber daya bernilai atau energi bersih."
         />
 
-        <StaggerContainer className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {products.map((product) => (
             <StaggerItem key={product.id} className="flex">
               <ProductCard product={product} onSelect={onSelectProduct} />
@@ -168,12 +168,12 @@ export default function Products({ onSelectProduct }) {
 
         {/* Bottom note */}
         <div className="mt-14 text-center">
-          <p className="text-slate-500 text-sm">
-            All products are fully automated, modular, and designed for industrial scale deployment.
+          <p className="text-slate-500 dark:text-slate-400 text-sm">
+            Seluruh produk sepenuhnya otomatis, modular, dan dirancang untuk penerapan skala industri.
           </p>
           <div className="mt-4 flex items-center justify-center gap-6 flex-wrap">
-            {['Zero Wastewater', 'Fully Automated', 'Modular Design', 'SNI Compliant'].map((tag) => (
-              <span key={tag} className="flex items-center gap-1.5 text-xs text-slate-600">
+            {['Zero Air Limbah', 'Otomasi Penuh', 'Desain Modular', 'Memenuhi SNI'].map((tag) => (
+              <span key={tag} className="flex items-center gap-1.5 text-xs text-slate-600 dark:text-slate-400">
                 <CheckCircle2 size={12} className="text-green-600" />
                 {tag}
               </span>

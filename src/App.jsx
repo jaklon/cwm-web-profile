@@ -49,7 +49,7 @@ function BackToTop() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-      aria-label="Back to top"
+      aria-label="Kembali ke atas"
       className="
         fixed bottom-8 right-8 z-50
         w-12 h-12 rounded-full

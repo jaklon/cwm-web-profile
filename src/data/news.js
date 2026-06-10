@@ -2,7 +2,7 @@ export const news = [
   {
     id: "brin-enviro-talk-56",
     type: "event",
-    tag: "Featured Event",
+    tag: "Acara Unggulan",
     tagColor: "blue",
     featured: true,
     date: "05 Juni 2026",

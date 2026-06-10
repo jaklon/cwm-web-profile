@@ -10,6 +10,14 @@
     @apply bg-slate-50 text-slate-900;
   }
 
+  html.dark {
+    @apply bg-slate-950 text-slate-100;
+  }
+
+  html.dark body {
+    @apply bg-slate-950;
+  }
+
   body {
     @apply font-sans antialiased;
   }
@@ -37,6 +45,15 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-green-500;
   }
+
+  /* Dark mode scrollbar */
+  html.dark ::-webkit-scrollbar-track {
+    @apply bg-slate-800;
+  }
+
+  html.dark ::-webkit-scrollbar-thumb {
+    @apply bg-green-500;
+  }
 }
 
 @layer components {
@@ -44,8 +61,16 @@
     @apply bg-white/80 backdrop-blur border border-slate-200 shadow-sm;
   }
 
+  html.dark .glass-card {
+    @apply bg-slate-900/80 border-slate-700;
+  }
+
   .glass-card-hover {
     @apply glass-card transition-all duration-300 hover:shadow-md hover:border-slate-300;
+  }
+
+  html.dark .glass-card-hover {
+    @apply bg-slate-900/80 border-slate-700 hover:border-slate-600;
   }
 
   .btn-primary {
@@ -61,6 +86,10 @@
            border-2 border-green-600 bg-transparent
            hover:bg-green-50
            transition-all duration-300 active:scale-95;
+  }
+
+  html.dark .btn-outline {
+    @apply text-green-400 border-green-500 hover:bg-green-950/40;
   }
 
   .section-container {
@@ -167,6 +196,10 @@
 /* Focus styles for accessibility */
 *:focus-visible {
   @apply outline-none ring-2 ring-green-500 ring-offset-2 ring-offset-white;
+}
+
+html.dark *:focus-visible {
+  @apply ring-offset-slate-900;
 }
 
 /* Selection color */

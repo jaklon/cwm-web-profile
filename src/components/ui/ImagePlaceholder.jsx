@@ -19,12 +19,12 @@ export default function ImagePlaceholder({
   }
   return (
     <div
-      className={`w-full flex flex-col items-center justify-center bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-dashed border-green-300 rounded-xl ${className}`}
+      className={`w-full flex flex-col items-center justify-center bg-gradient-to-br from-green-50 dark:from-slate-800 to-emerald-100 dark:to-slate-700 border-2 border-dashed border-green-300 dark:border-slate-600 rounded-xl ${className}`}
       style={{ aspectRatio }}
     >
-      <ImageIcon size={32} className="text-green-400 mb-2" />
-      <span className="text-xs font-medium text-green-600 text-center px-4">{label}</span>
-      <span className="text-xs text-green-400 mt-1">Replace src prop with image path</span>
+      <ImageIcon size={32} className="text-green-400 dark:text-green-500 mb-2" />
+      <span className="text-xs font-medium text-green-600 dark:text-green-400 text-center px-4">{label}</span>
+      <span className="text-xs text-green-400 dark:text-green-500 mt-1">Replace src prop with image path</span>
     </div>
   );
 }

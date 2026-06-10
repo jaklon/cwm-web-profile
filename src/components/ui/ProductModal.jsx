@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 
-const TABS = ['Overview', 'Process Stages', 'Specifications'];
+const TABS = ['Ikhtisar', 'Tahapan Proses', 'Spesifikasi'];
 
 const accentMap = {
   green:  { text: 'text-green-600',  bg: 'bg-green-100',  border: 'border-green-200',  connector: 'bg-green-400',  badge: 'bg-green-50 text-green-700'  },
@@ -27,13 +27,13 @@ function OverviewTab({ product, accent }) {
       transition={{ duration: 0.3 }}
       className="space-y-6"
     >
-      <p className="text-slate-700 text-base leading-relaxed">
+      <p className="text-slate-700 dark:text-slate-300 text-base leading-relaxed">
         {product.description}
       </p>
 
       <div>
-        <h4 className="text-sm font-semibold uppercase tracking-widest text-slate-600 mb-4">
-          Key Highlights
+        <h4 className="text-sm font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-400 mb-4">
+          Keunggulan Utama
         </h4>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {product.highlights.map((h, i) => (
@@ -42,7 +42,7 @@ function OverviewTab({ product, accent }) {
               className={`flex items-center gap-3 px-4 py-3 rounded-xl ${accent.bg} border ${accent.border}`}
             >
               <LucideIcons.CheckCircle2 size={16} className={accent.text} />
-              <span className="text-sm text-slate-700 font-medium">{h}</span>
+              <span className="text-sm text-slate-700 dark:text-slate-300 font-medium">{h}</span>
             </div>
           ))}
         </div>
@@ -50,7 +50,7 @@ function OverviewTab({ product, accent }) {
 
       <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${accent.badge} border ${accent.border} text-sm font-semibold`}>
         <LucideIcons.Gauge size={14} />
-        Capacity: {product.capacity}
+        Kapasitas: {product.capacity}
       </div>
     </motion.div>
   );
@@ -91,12 +91,12 @@ function StagesTab({ product, accent }) {
                 className="px-2 text-center"
               >
                 <div className={`text-xs font-bold ${accent.text} mb-1`}>
-                  Step {stage.step}
+                  Tahap {stage.step}
                 </div>
-                <div className="text-sm font-semibold text-slate-900 mb-2">
+                <div className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-2">
                   {stage.title}
                 </div>
-                <div className="text-xs text-slate-600 leading-relaxed">
+                <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                   {stage.desc}
                 </div>
               </motion.div>
@@ -127,10 +127,10 @@ function StagesTab({ product, accent }) {
               <div className={`text-xs font-bold ${accent.text} mb-0.5`}>
                 Step {stage.step}
               </div>
-              <div className="text-sm font-semibold text-slate-900 mb-1">
+              <div className="text-sm font-semibold text-slate-900 dark:text-slate-100 mb-1">
                 {stage.title}
               </div>
-              <div className="text-xs text-slate-600 leading-relaxed">
+              <div className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
                 {stage.desc}
               </div>
             </div>
@@ -149,14 +149,14 @@ function SpecsTab({ product, accent }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -16 }}
       transition={{ duration: 0.3 }}
-      className="divide-y divide-slate-100 rounded-xl overflow-hidden border border-slate-200"
+      className="divide-y divide-slate-100 dark:divide-slate-800 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700"
     >
       {product.specs.map((spec, i) => (
         <div
           key={i}
-          className="flex items-center justify-between px-5 py-4 bg-slate-50 hover:bg-white transition-colors"
+          className="flex items-center justify-between px-5 py-4 bg-slate-50 dark:bg-slate-800/50 hover:bg-white dark:hover:bg-slate-800 transition-colors"
         >
-          <span className="text-sm text-slate-600 font-medium">{spec.label}</span>
+          <span className="text-sm text-slate-600 dark:text-slate-400 font-medium">{spec.label}</span>
           <span className={`text-sm font-semibold ${accent.text}`}>{spec.value}</span>
         </div>
       ))}
@@ -201,7 +201,7 @@ export default function ProductModal({ product, onClose }) {
         {/* Modal */}
         <motion.div
           key="modal"
-          className="relative z-10 w-full max-w-2xl max-h-[90vh] flex flex-col rounded-2xl overflow-hidden bg-white border border-slate-200 shadow-2xl"
+          className="relative z-10 w-full max-w-2xl max-h-[90vh] flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xl"
           initial={{ opacity: 0, y: 40, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.96 }}
@@ -212,39 +212,39 @@ export default function ProductModal({ product, onClose }) {
           <div className={`h-1 w-full bg-gradient-to-r ${product.color}`} />
 
           {/* Header */}
-          <div className="flex items-start gap-4 px-6 py-5 border-b border-slate-200">
+          <div className="flex items-start gap-4 px-4 sm:px-6 py-4 sm:py-5 border-b border-slate-200 dark:border-slate-700">
             <div className={`w-12 h-12 rounded-xl ${accent.bg} border ${accent.border} flex items-center justify-center flex-shrink-0`}>
               <DynamicIcon name={product.icon} size={22} className={accent.text} />
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
-                <h3 className="text-lg font-bold text-slate-900 leading-tight">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 leading-tight">
                   {product.title}
                 </h3>
                 <span className={`text-xs px-2 py-0.5 rounded-full border ${accent.badge} ${accent.border}`}>
                   {product.category}
                 </span>
               </div>
-              <p className="text-sm text-slate-600 mt-0.5">{product.subtitle}</p>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">{product.subtitle}</p>
             </div>
             <button
               onClick={onClose}
-              aria-label="Close modal"
-              className="flex-shrink-0 w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-700 transition-colors"
+              aria-label="Tutup modal"
+              className="flex-shrink-0 w-10 h-10 min-w-[44px] min-h-[44px] rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors"
             >
               <LucideIcons.X size={16} />
             </button>
           </div>
 
           {/* Tabs */}
-          <div className="flex border-b border-slate-200 px-6">
+          <div className="flex border-b border-slate-200 dark:border-slate-700 px-4 sm:px-6 overflow-x-auto">
             {TABS.map((tab, i) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(i)}
                 className={`
                   relative py-3 px-4 text-sm font-medium transition-colors
-                  ${activeTab === i ? 'text-slate-900' : 'text-slate-500 hover:text-slate-700'}
+                  ${activeTab === i ? 'text-slate-900 dark:text-slate-100' : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'}
                 `}
               >
                 {tab}
@@ -259,7 +259,7 @@ export default function ProductModal({ product, onClose }) {
           </div>
 
           {/* Tab content */}
-          <div className="flex-1 overflow-y-auto px-6 py-6 bg-white">
+          <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6 bg-white dark:bg-slate-900">
             <AnimatePresence mode="wait">
               {activeTab === 0 && (
                 <OverviewTab key="overview" product={product} accent={accent} />

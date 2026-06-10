@@ -2,24 +2,24 @@ export const management = [
   {
     name: "Drs. Yamin Pakaya, M.T.",
     photo: null, // → "/images/team/yamin-pakaya.jpg"
-    role: "Managing Director",
+    role: "Direktur Utama",
     roleColor: "green",
-    education: "S1 Elektronika · Master Teknik Energi Baru & Terbarukan",
+    education: "Teknik Elektronika, Master Teknik Energi Baru dan Terbarukan",
     expertise:
-      "Konversi Biomassa (sampah) menjadi Energi — Alternatif Fuel & Cofiring",
+      "Konversi Biomassa (Sampah) menjadi Energi — Bahan Bakar Alternatif & Co-firing",
     tags: ["Biomass Energy", "Cofiring", "Renewable Energy"],
     icon: "Crown",
     initials: "YP",
     speakerBadge: true,
-    speakerEvent: "BRIN Enviro Talk #56 — Speaker",
+    speakerEvent: "BRIN Enviro Talk #56 — Pembicara",
   },
   {
     name: "Mr. Salman YF Putra",
     photo: null, // → "/images/team/salman-putra.jpg"
-    role: "Business Development",
+    role: "Pengembangan Bisnis",
     roleColor: "blue",
-    education: "S1 Teknik Nuklir · Master of Chemical Engineering",
-    expertise: "Konversi Syngas dari sampah menjadi Green Hydrogen",
+    education: "Teknik Nuklir, Master Teknik Kimia",
+    expertise: "Konversi Syngas (Sampah) menjadi Green Hydrogen",
     tags: ["Green Hydrogen", "Syngas", "Chemical Engineering"],
     icon: "TrendingUp",
     initials: "SP",
@@ -27,7 +27,7 @@ export const management = [
   {
     name: "Mr. A. Haris S",
     photo: null, // → "/images/team/a-haris.jpg"
-    role: "Research Development",
+    role: "Riset & Pengembangan",
     roleColor: "cyan",
     education: "S1 Teknik Kimia",
     expertise: "Polimerisasi dan Komposit Material dari Limbah/Sampah",
@@ -38,11 +38,11 @@ export const management = [
   {
     name: "Mr. Ronny R Kembuan",
     photo: null, // → "/images/team/ronny-kembuan.jpg"
-    role: "Industry Development",
+    role: "Pengembangan Industri",
     roleColor: "orange",
     education: "S1 Teknik Perkapalan",
     expertise:
-      "Industry Thermal Process — Incinerator, Gasifikasi, Boiler, Steam Turbine, Pyrolysis",
+      "Industri Proses Termal — Incinerator, Gasifikasi, Boiler, Steam Turbine, Pyrolisis",
     tags: ["Gasification", "Pyrolysis", "Steam Turbine", "Incinerator"],
     icon: "Factory",
     initials: "RK",
@@ -50,9 +50,9 @@ export const management = [
   {
     name: "Ms. Dita Astrid",
     photo: null, // → "/images/team/dita-astrid.jpg"
-    role: "Marketing Development",
+    role: "Pengembangan Pemasaran",
     roleColor: "pink",
-    education: "S1 Marketing · Master of International Relations",
+    education: "Pemasaran, Master Hubungan Internasional",
     expertise:
       "Pemasaran Komoditi dan Peralatan Industri di pasar internasional",
     tags: ["Industrial Marketing", "International Relations", "Commodities"],

@@ -39,11 +39,11 @@ export default function StatCounter({
 
   return (
     <div ref={ref} className={`text-center ${className}`}>
-      <div className="text-4xl lg:text-5xl font-bold font-display text-gradient-green tabular-nums">
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-gradient-green tabular-nums">
         {formatted}
-        <span className="text-2xl lg:text-3xl">{suffix}</span>
+        <span className="text-xl sm:text-2xl lg:text-3xl">{suffix}</span>
       </div>
-      <div className="mt-2 text-sm text-slate-500 font-medium tracking-wide uppercase">
+      <div className="mt-2 text-sm text-slate-500 dark:text-slate-400 font-medium tracking-wide uppercase">
         {label}
       </div>
     </div>

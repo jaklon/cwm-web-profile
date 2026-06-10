@@ -31,7 +31,7 @@ const MAIN_BADGES = [
   },
   {
     label: 'PKP',
-    value: 'Certified',
+    value: 'Dikukuhkan',
     desc:  company.legal.pkp,
     icon:  ShieldCheck,
     color: 'from-violet-500 to-purple-600',
@@ -41,7 +41,7 @@ const MAIN_BADGES = [
 
 export default function Legality() {
   return (
-    <section className="relative py-24 lg:py-32 bg-gray-50 overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-gray-50 dark:bg-slate-950 overflow-hidden">
 
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-green-500/5 rounded-full blur-3xl pointer-events-none" />
@@ -50,10 +50,10 @@ export default function Legality() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <SectionHeader
-          badge="Compliance"
-          title="Legal &"
-          titleGradient="Compliance"
-          subtitle="Fully registered and legally compliant under Indonesian business law, with all required certifications and operational permits."
+          badge="Legalitas & Kepatuhan"
+          title="Legalitas"
+          titleGradient="Perusahaan"
+          subtitle="Terdaftar sepenuhnya dan patuh hukum berdasarkan peraturan bisnis Indonesia, dengan seluruh sertifikasi dan izin operasional yang diperlukan."
         />
 
         {/* Two-column layout */}
@@ -61,15 +61,15 @@ export default function Legality() {
 
           {/* Left — incorporation details */}
           <AnimatedSection direction="left">
-            <div className="h-full rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden">
+            <div className="h-full rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
               {/* Card header */}
-              <div className="flex items-center gap-3 px-6 py-4 border-b border-slate-200 bg-green-50">
+              <div className="flex items-center gap-3 px-6 py-4 border-b border-slate-200 dark:border-slate-700 bg-green-50 dark:bg-green-950/20">
                 <div className="w-9 h-9 rounded-xl bg-green-100 border border-green-200 flex items-center justify-center">
                   <Building2 size={16} className="text-green-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-900">Company Incorporation</p>
-                  <p className="text-xs text-slate-500">Official registration details</p>
+                  <p className="text-sm font-bold text-slate-900 dark:text-slate-100">Pendirian Perusahaan</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Detail registrasi resmi</p>
                 </div>
               </div>
 
@@ -78,60 +78,60 @@ export default function Legality() {
                 <div className="flex items-start gap-3">
                   <FileText size={15} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1">
-                      Notary Deed
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">
+                      Akta Pendirian
                     </p>
-                    <p className="text-sm text-slate-700 leading-relaxed font-mono">
+                    <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed font-mono">
                       {company.legal.notary}
                     </p>
                   </div>
                 </div>
 
-                <div className="h-px bg-slate-100" />
+                <div className="h-px bg-slate-100 dark:bg-slate-800" />
 
                 {/* AHU */}
                 <div className="flex items-start gap-3">
                   <ShieldCheck size={15} className="text-green-600 mt-0.5 flex-shrink-0" />
                   <div>
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1">
-                      AHU Number
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">
+                      Nomor AHU
                     </p>
-                    <p className="text-sm text-slate-700 font-mono tracking-wide">
+                    <p className="text-sm text-slate-700 dark:text-slate-300 font-mono tracking-wide">
                       {company.legal.ahu}
                     </p>
                   </div>
                 </div>
 
-                <div className="h-px bg-slate-100" />
+                <div className="h-px bg-slate-100 dark:bg-slate-800" />
 
                 {/* NIB + NPWP row */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-3 rounded-xl bg-green-50 border border-green-200">
                     <p className="text-[10px] font-bold uppercase tracking-widest text-green-700 mb-1">NIB</p>
-                    <p className="text-xs text-slate-700 font-mono">{company.legal.nib}</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-300 font-mono">{company.legal.nib}</p>
                   </div>
                   <div className="p-3 rounded-xl bg-cyan-50 border border-cyan-200">
                     <p className="text-[10px] font-bold uppercase tracking-widest text-cyan-700 mb-1">NPWP</p>
-                    <p className="text-xs text-slate-700 font-mono">{company.legal.npwp}</p>
+                    <p className="text-xs text-slate-700 dark:text-slate-300 font-mono">{company.legal.npwp}</p>
                   </div>
                 </div>
 
-                <div className="h-px bg-slate-100" />
+                <div className="h-px bg-slate-100 dark:bg-slate-800" />
 
                 {/* PKP + Founded row */}
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex items-center gap-2">
                     <CheckCircle2 size={14} className="text-green-600 flex-shrink-0" />
                     <div>
-                      <p className="text-[10px] text-slate-500 uppercase tracking-wide">PKP Status</p>
-                      <p className="text-xs text-slate-700">{company.legal.pkp}</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wide">Status PKP</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-300">{company.legal.pkp}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
                     <Calendar size={14} className="text-cyan-600 flex-shrink-0" />
                     <div>
-                      <p className="text-[10px] text-slate-500 uppercase tracking-wide">Founded</p>
-                      <p className="text-xs text-slate-700">27 Februari 2023</p>
+                      <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wide">Tanggal Berdiri</p>
+                      <p className="text-xs text-slate-700 dark:text-slate-300">27 Februari 2023</p>
                     </div>
                   </div>
                 </div>
@@ -141,15 +141,15 @@ export default function Legality() {
 
           {/* Right — KBLI codes */}
           <AnimatedSection direction="right" delay={0.1}>
-            <div className="h-full rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden">
+            <div className="h-full rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
               {/* Card header */}
-              <div className="flex items-center gap-3 px-6 py-4 border-b border-slate-200 bg-cyan-50">
+              <div className="flex items-center gap-3 px-6 py-4 border-b border-slate-200 dark:border-slate-700 bg-cyan-50 dark:bg-cyan-950/20">
                 <div className="w-9 h-9 rounded-xl bg-cyan-100 border border-cyan-200 flex items-center justify-center">
                   <Briefcase size={16} className="text-cyan-600" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-slate-900">Business Classification</p>
-                  <p className="text-xs text-slate-500">KBLI codes — licensed activities</p>
+                  <p className="text-sm font-bold text-slate-900 dark:text-slate-100">Klasifikasi Usaha</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">Kode KBLI — kegiatan usaha berlisensi</p>
                 </div>
               </div>
 
@@ -160,18 +160,18 @@ export default function Legality() {
                       <div className={`
                         flex items-start gap-4 p-4 rounded-xl
                         border-l-4 ${KBLI_COLORS[i % KBLI_COLORS.length]}
-                        border border-slate-100
+                        border border-slate-100 dark:border-slate-800
                       `}>
                         <div className="flex-shrink-0">
                           <span className={`
                             text-xs font-bold font-mono px-2 py-1 rounded-md
-                            bg-slate-100 border border-slate-200
+                            bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700
                             ${KBLI_COLORS[i % KBLI_COLORS.length].split(' ')[2]}
                           `}>
                             {item.code}
                           </span>
                         </div>
-                        <p className="text-sm text-slate-700 leading-relaxed">
+                        <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                           {item.name}
                         </p>
                       </div>
@@ -179,10 +179,10 @@ export default function Legality() {
                   ))}
                 </StaggerContainer>
 
-                <div className="mt-5 pt-4 border-t border-slate-100 flex items-center gap-2">
+                <div className="mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center gap-2">
                   <CheckCircle2 size={13} className="text-green-600" />
-                  <p className="text-xs text-slate-500">
-                    All KBLI codes registered under OSS — Online Single Submission
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Seluruh kode KBLI terdaftar melalui OSS — Online Single Submission
                   </p>
                 </div>
               </div>
@@ -192,13 +192,13 @@ export default function Legality() {
 
         {/* Large verification badges */}
         <AnimatedSection delay={0.2}>
-          <div className="grid sm:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
             {MAIN_BADGES.map(({ label, value, desc, icon: Icon, color, glow }) => (
               <div
                 key={label}
                 className={`
                   relative flex items-center gap-4 p-5 rounded-2xl
-                  bg-white border border-slate-200 shadow-sm
+                  bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm
                   transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${glow}
                 `}
               >
@@ -211,11 +211,11 @@ export default function Legality() {
                 </div>
                 <div className="min-w-0">
                   <div className="flex items-center gap-2 mb-0.5">
-                    <p className="text-base font-bold text-slate-900">{label}</p>
+                    <p className="text-base font-bold text-slate-900 dark:text-slate-100">{label}</p>
                     <CheckCircle2 size={13} className="text-green-600" />
                   </div>
-                  <p className="text-xs font-mono text-slate-600 truncate mb-0.5">{value}</p>
-                  <p className="text-[10px] text-slate-500">{desc}</p>
+                  <p className="text-xs font-mono text-slate-600 dark:text-slate-400 truncate mb-0.5">{value}</p>
+                  <p className="text-[10px] text-slate-500 dark:text-slate-400">{desc}</p>
                 </div>
               </div>
             ))}

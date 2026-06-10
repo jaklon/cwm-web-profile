@@ -31,14 +31,15 @@ import cwmLogo from '../../assets/cwm_logo.png';
 import { company } from '../../data/company';
 
 const NAV_LINKS = [
-  { label: 'Home',     href: '#home' },
-  { label: 'About',    href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Partners', href: '#partners' },
-  { label: 'News',     href: '#news' },
-  { label: 'Team',     href: '#team' },
-  { label: 'Legal',    href: '#legal' },
-  { label: 'Contact',  href: '#contact' },
+  { label: 'Beranda',   href: '#home' },
+  { label: 'Tentang',   href: '#about' },
+  { label: 'Layanan',   href: '#services' },
+  { label: 'Mitra',     href: '#partners' },
+  { label: 'Galeri',    href: '#gallery' },
+  { label: 'Berita',    href: '#news' },
+  { label: 'Tim',       href: '#team' },
+  { label: 'Legalitas', href: '#legal' },
+  { label: 'Kontak',    href: '#contact' },
 ];
 
 function scrollTo(href) {
@@ -97,9 +98,9 @@ export default function Footer() {
             </button>
 
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
-              PT. Circular Waste Management — advancing industrial waste
-              processing innovation through cutting-edge technology and
-              circular economy principles.
+              PT. Circular Waste Management — menghadirkan inovasi pengolahan
+              sampah industri melalui teknologi mutakhir dan prinsip
+              ekonomi sirkular.
             </p>
 
             <div className="flex flex-wrap gap-2">
@@ -114,7 +115,7 @@ export default function Footer() {
             </div>
 
             <div className="mt-4 flex items-center gap-2 text-xs text-slate-400">
-              <span className="text-slate-600">Supported by</span>
+              <span className="text-slate-600 dark:text-slate-500">Didukung oleh</span>
               <span className="font-semibold text-slate-300">INTEC Group Berlin 🇩🇪</span>
             </div>
 
@@ -137,7 +138,7 @@ export default function Footer() {
           {/* Quick links */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-widest text-slate-300 mb-5">
-              Quick Links
+              Tautan Cepat
             </h4>
             <ul className="space-y-2.5">
               {NAV_LINKS.map(({ label, href }) => (
@@ -157,7 +158,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-sm font-semibold uppercase tracking-widest text-slate-300 mb-5">
-              Contact
+              Kontak
             </h4>
             <ul className="space-y-4">
               <li>
@@ -213,7 +214,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>
-            © {new Date().getFullYear()} PT. Circular Waste Management. All rights reserved.
+            © {new Date().getFullYear()} PT. Circular Waste Management. Seluruh hak dilindungi.
           </p>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5">

@@ -12,7 +12,7 @@ import { company } from '../../data/company';
 const CONTACT_ITEMS = [
   {
     icon:  MapPin,
-    label: 'Office Address',
+    label: 'Alamat Kantor',
     value: company.contact.address,
     color: 'text-green-600',
     bg:    'bg-green-100 border-green-200',
@@ -20,7 +20,7 @@ const CONTACT_ITEMS = [
   },
   {
     icon:  Phone,
-    label: 'Phone',
+    label: 'Telepon',
     value: company.contact.phone.join(' / '),
     color: 'text-cyan-600',
     bg:    'bg-cyan-100 border-cyan-200',
@@ -83,13 +83,13 @@ function ContactForm() {
   };
 
   const inputClass = (hasError) => `
-    w-full px-4 py-3 rounded-xl text-sm text-slate-900
-    bg-slate-50 border transition-all duration-200 outline-none
-    placeholder:text-slate-400
-    focus:bg-white focus:border-green-500 focus:ring-2 focus:ring-green-200
+    w-full px-4 py-3 min-h-[44px] rounded-xl text-sm text-slate-900 dark:text-slate-100
+    bg-slate-50 dark:bg-slate-800 border transition-all duration-200 outline-none
+    placeholder:text-slate-400 dark:placeholder:text-slate-500
+    focus:bg-white dark:focus:bg-slate-700 focus:border-green-500 focus:ring-2 focus:ring-green-200 dark:focus:ring-green-900
     ${hasError
       ? 'border-red-400 focus:border-red-400 focus:ring-red-200'
-      : 'border-slate-300'}
+      : 'border-slate-300 dark:border-slate-600'}
   `;
 
   if (status === 'error') {
@@ -98,10 +98,10 @@ function ContactForm() {
         <div className="w-16 h-16 rounded-2xl bg-red-100 border border-red-200 flex items-center justify-center">
           <AlertCircle size={32} className="text-red-600" />
         </div>
-        <h4 className="text-lg font-bold text-slate-900">Failed to Send</h4>
-        <p className="text-sm text-slate-600 max-w-xs">
-          Something went wrong. Please try again or contact us directly at{' '}
-          <span className="font-medium text-slate-800">{company.contact.email}</span>.
+        <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100">Gagal Terkirim</h4>
+        <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs">
+          Terjadi kesalahan. Silakan coba lagi atau hubungi kami langsung di{' '}
+          <span className="font-medium text-slate-800 dark:text-slate-200">{company.contact.email}</span>.
         </p>
       </div>
     );
@@ -113,9 +113,9 @@ function ContactForm() {
         <div className="w-16 h-16 rounded-2xl bg-green-100 border border-green-200 flex items-center justify-center">
           <CheckCircle2 size={32} className="text-green-600" />
         </div>
-        <h4 className="text-lg font-bold text-slate-900">Message Sent!</h4>
-        <p className="text-sm text-slate-600 max-w-xs">
-          Thank you for reaching out. Our team will get back to you shortly.
+        <h4 className="text-lg font-bold text-slate-900 dark:text-slate-100">Pesan Terkirim!</h4>
+        <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xs">
+          Terima kasih telah menghubungi kami. Tim kami akan segera merespons.
         </p>
       </div>
     );
@@ -126,14 +126,14 @@ function ContactForm() {
       {/* Name + Email */}
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide">
-            Full Name <span className="text-red-500">*</span>
+          <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5 uppercase tracking-wide">
+            Nama Lengkap <span className="text-red-500">*</span>
           </label>
           <input
             type="text"
-            placeholder="John Doe"
+            placeholder="Budi Santoso"
             className={inputClass(!!errors.name)}
-            {...register('name', { required: 'Name is required' })}
+            {...register('name', { required: 'Nama harus diisi' })}
           />
           {errors.name && (
             <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
@@ -142,16 +142,16 @@ function ContactForm() {
           )}
         </div>
         <div>
-          <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide">
+          <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5 uppercase tracking-wide">
             Email <span className="text-red-500">*</span>
           </label>
           <input
             type="email"
-            placeholder="john@company.com"
+            placeholder="budi@perusahaan.com"
             className={inputClass(!!errors.email)}
             {...register('email', {
-              required: 'Email is required',
-              pattern: { value: /^\S+@\S+\.\S+$/, message: 'Invalid email address' },
+              required: 'Email harus diisi',
+              pattern: { value: /^\S+@\S+\.\S+$/, message: 'Alamat email tidak valid' },
             })}
           />
           {errors.email && (
@@ -164,12 +164,12 @@ function ContactForm() {
 
       {/* Company */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide">
-          Company / Organization
+        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5 uppercase tracking-wide">
+          Perusahaan / Organisasi
         </label>
         <input
           type="text"
-          placeholder="PT. Example Indonesia"
+          placeholder="PT. Contoh Indonesia"
           className={inputClass(false)}
           {...register('company')}
         />
@@ -177,22 +177,22 @@ function ContactForm() {
 
       {/* Subject */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide">
-          Subject <span className="text-red-500">*</span>
+        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5 uppercase tracking-wide">
+          Subjek <span className="text-red-500">*</span>
         </label>
         <select
           className={inputClass(!!errors.subject) + ' cursor-pointer'}
-          {...register('subject', { required: 'Please select a subject' })}
+          {...register('subject', { required: 'Silakan pilih subjek' })}
           defaultValue=""
         >
-          <option value="" disabled className="bg-white">Select a topic…</option>
-          <option value="bsf"           className="bg-white">Automatic BSF Breeding</option>
-          <option value="rdf"           className="bg-white">RDF Briquette &amp; BBJP</option>
-          <option value="geocell"       className="bg-white">Industrial Geocell Material</option>
-          <option value="gasification"  className="bg-white">Gasification Power Plant</option>
-          <option value="wte-system"    className="bg-white">WTE / TPST3R System Inquiry</option>
-          <option value="partnership"   className="bg-white">Partnership Inquiry</option>
-          <option value="other"         className="bg-white">Other</option>
+          <option value="" disabled className="bg-white dark:bg-slate-800">Pilih topik…</option>
+          <option value="bsf"           className="bg-white dark:bg-slate-800">Budidaya BSF Otomatis</option>
+          <option value="rdf"           className="bg-white dark:bg-slate-800">Briket RDF &amp; BBJP</option>
+          <option value="geocell"       className="bg-white dark:bg-slate-800">Material Geocell Industri</option>
+          <option value="gasification"  className="bg-white dark:bg-slate-800">Pembangkit Listrik Gasifikasi</option>
+          <option value="wte-system"    className="bg-white dark:bg-slate-800">Pertanyaan Sistem WTE / TPST3R</option>
+          <option value="partnership"   className="bg-white dark:bg-slate-800">Pertanyaan Kemitraan</option>
+          <option value="other"         className="bg-white dark:bg-slate-800">Lainnya</option>
         </select>
         {errors.subject && (
           <p className="mt-1 text-xs text-red-600 flex items-center gap-1">
@@ -203,16 +203,16 @@ function ContactForm() {
 
       {/* Message */}
       <div>
-        <label className="block text-xs font-semibold text-slate-700 mb-1.5 uppercase tracking-wide">
-          Message <span className="text-red-500">*</span>
+        <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5 uppercase tracking-wide">
+          Pesan <span className="text-red-500">*</span>
         </label>
         <textarea
           rows={4}
-          placeholder="Tell us about your waste management needs or project requirements…"
+          placeholder="Ceritakan kebutuhan pengelolaan sampah atau persyaratan proyek Anda…"
           className={inputClass(!!errors.message) + ' resize-none'}
           {...register('message', {
-            required: 'Message is required',
-            minLength: { value: 20, message: 'Message must be at least 20 characters' },
+            required: 'Pesan harus diisi',
+            minLength: { value: 20, message: 'Pesan minimal 20 karakter' },
           })}
         />
         {errors.message && (
@@ -239,12 +239,12 @@ function ContactForm() {
         {status === 'loading' ? (
           <>
             <Loader2 size={16} className="animate-spin" />
-            Sending…
+            Mengirim…
           </>
         ) : (
           <>
             <Send size={16} />
-            Send Message
+            Kirim Pesan
           </>
         )}
       </button>
@@ -254,7 +254,7 @@ function ContactForm() {
 
 export default function Contact() {
   return (
-    <section className="relative py-24 lg:py-32 bg-white overflow-hidden">
+    <section className="relative py-24 lg:py-32 bg-white dark:bg-slate-900 overflow-hidden">
 
       {/* Background glow */}
       <div className="absolute inset-0 pointer-events-none">
@@ -264,10 +264,10 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <SectionHeader
-          badge="Get In Touch"
-          title="Contact"
-          titleGradient="Us"
-          subtitle="Ready to transform your waste streams into value? Reach out to our team for a consultation or partnership inquiry."
+          badge="Hubungi Kami"
+          title="Kontak"
+          titleGradient="Kami"
+          subtitle="Siap mengubah aliran sampah Anda menjadi nilai? Hubungi tim kami untuk konsultasi atau pertanyaan kemitraan."
         />
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
@@ -278,9 +278,9 @@ export default function Contact() {
               const inner = (
                 <div className={`
                   flex items-start gap-4 p-5 rounded-2xl
-                  bg-gray-50 border border-slate-200
+                  bg-gray-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700
                   transition-all duration-300
-                  hover:-translate-y-1 hover:shadow-md hover:border-slate-300
+                  hover:-translate-y-1 hover:shadow-md hover:border-slate-300 dark:hover:border-slate-600
                   ${href ? 'cursor-pointer' : ''}
                 `}>
                   <div className={`
@@ -290,10 +290,10 @@ export default function Contact() {
                     <Icon size={18} className={color} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 mb-1">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-slate-500 dark:text-slate-400 mb-1">
                       {label}
                     </p>
-                    <p className={`text-sm leading-relaxed break-words ${href ? `hover:${color}` : 'text-slate-700'} transition-colors`}>
+                    <p className={`text-sm leading-relaxed break-words ${href ? `hover:${color}` : 'text-slate-700 dark:text-slate-300'} transition-colors`}>
                       {value}
                     </p>
                   </div>
@@ -310,9 +310,9 @@ export default function Contact() {
             })}
 
             {/* Map embed */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 h-52">
+            <div className="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 h-52">
               <iframe
-                title="CWM Office Location"
+                title="Lokasi Kantor CWM"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.0!2d106.9270!3d-6.2200!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTMnMTIuMCJTIDEwNsKwNTUnMzcuMiJF!5e0!3m2!1sen!2sid!4v1234567890"
                 width="100%"
                 height="100%"
@@ -327,11 +327,11 @@ export default function Contact() {
 
           {/* Right — form */}
           <AnimatedSection direction="right" delay={0.15}>
-            <div className="rounded-2xl bg-white border border-slate-200 shadow-sm p-7">
+            <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-sm p-7">
               <div className="flex items-center gap-2 mb-6">
                 <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <h3 className="text-sm font-semibold text-slate-700 uppercase tracking-widest">
-                  Send a Message
+                <h3 className="text-sm font-semibold text-slate-700 dark:text-slate-300 uppercase tracking-widest">
+                  Kirim Pesan
                 </h3>
               </div>
               <ContactForm />
