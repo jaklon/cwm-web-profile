@@ -1,7 +1,7 @@
 export const products = [
   {
     id: "bsf",
-    productImage: "/images/products/bsf-maggot-closeup.jpg",
+    productImage: "/images/products/maggot(fix).png",
     facilityImage: "/images/products/bsf-facility-automation.jpg",
     title: "Budidaya BSF Otomatis Skala Industri",
     subtitle: "Budidaya Maggot Skala Industri",
@@ -55,7 +55,7 @@ export const products = [
   },
   {
     id: "rdf",
-    productImage: "/images/products/rdf-briquette-product.jpg",
+    productImage: "/images/products/RDF(fix).png",
     facilityImage: "/images/products/rdf-processing-equipment.jpg",
     title: "Briket RDF & Bahan Bakar Jumputan Padat (BBJP)",
     subtitle: "Bahan Bakar Jumputan Padat",
@@ -109,7 +109,7 @@ export const products = [
   },
   {
     id: "geocell",
-    productImage: "/images/products/geocell-field-installation.jpg",
+    productImage: "/images/products/geocellfield(fix).png",
     facilityImage: "/images/products/geocell-factory-machinery.jpg",
     title: "Material Geocell Industri",
     subtitle: "Material Geocell dari Limbah Plastik",
@@ -163,7 +163,7 @@ export const products = [
   },
   {
     id: "gasification",
-    productImage: "/images/products/gasification-plant-render.jpg",
+    productImage: "/images/products/gassification(fix).png",
     facilityImage: "/images/products/gasification-system-diagram.jpg",
     title: "Pembangkit Listrik Gasifikasi Sampah Medis & Residu",
     subtitle: "Pembangkit Listrik dari Limbah Medis",

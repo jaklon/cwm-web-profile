@@ -6,7 +6,7 @@ import { useState } from 'react';
 // Semua gambar operasional yang tersedia dari compro CWM
 const GALLERY_ITEMS = [
   {
-    src:      '/images/products/bsf-maggot-closeup.jpg',
+    src:      '/images/products/maggot(fix).png',
     alt:      'BSF — Larva Maggot Berkualitas Tinggi',
     label:    'Budidaya BSF',
     category: 'Organik',
@@ -14,7 +14,7 @@ const GALLERY_ITEMS = [
     badge:    'bg-green-100 text-green-700 border-green-200',
   },
   {
-    src:      '/images/products/bsf-facility-automation.jpg',
+    src:      '/images/products/bsffacility(fix).png',
     alt:      'Fasilitas BSF — Sistem Otomasi Skala Industri',
     label:    'Fasilitas Otomasi BSF',
     category: 'Organik',
@@ -22,7 +22,7 @@ const GALLERY_ITEMS = [
     badge:    'bg-green-100 text-green-700 border-green-200',
   },
   {
-    src:      '/images/products/rdf-briquette-product.jpg',
+    src:      '/images/products/RDF(fix).png',
     alt:      'RDF/BBJP — Pelet Bahan Bakar Alternatif Berkalori Tinggi',
     label:    'Pelet RDF/BBJP',
     category: 'Bahan Bakar',
@@ -30,7 +30,7 @@ const GALLERY_ITEMS = [
     badge:    'bg-amber-100 text-amber-700 border-amber-200',
   },
   {
-    src:      '/images/products/rdf-processing-equipment.jpg',
+    src:      '/images/products/rdfprocessing(fix).png',
     alt:      'Peralatan Pengolahan RDF — Crusher & Dryer Industri',
     label:    'Lini Produksi RDF',
     category: 'Bahan Bakar',
@@ -38,7 +38,7 @@ const GALLERY_ITEMS = [
     badge:    'bg-amber-100 text-amber-700 border-amber-200',
   },
   {
-    src:      '/images/products/geocell-field-installation.jpg',
+    src:      '/images/products/geocellfield(fix).png',
     alt:      'Geocell — Pemasangan di Lapangan untuk Perkuatan Jalan & Pengendalian Erosi',
     label:    'Instalasi Geocell Lapangan',
     category: 'Infrastruktur',
@@ -46,7 +46,7 @@ const GALLERY_ITEMS = [
     badge:    'bg-cyan-100 text-cyan-700 border-cyan-200',
   },
   {
-    src:      '/images/products/geocell-factory-machinery.jpg',
+    src:      '/images/products/geocellfactory(fix).png',
     alt:      'Pabrik Geocell — Mesin Molding & Penjahitan Ultrasonik',
     label:    'Pabrik Geocell',
     category: 'Infrastruktur',
@@ -54,7 +54,7 @@ const GALLERY_ITEMS = [
     badge:    'bg-cyan-100 text-cyan-700 border-cyan-200',
   },
   {
-    src:      '/images/products/gasification-plant-render.jpg',
+    src:      '/images/products/gassification(fix).png',
     alt:      'Pembangkit Listrik Gasifikasi — Tungku Pirolisis Vertikal',
     label:    'Plant Gasifikasi',
     category: 'Energi',

@@ -118,7 +118,7 @@ export default function About() {
         {/* Company overview image */}
         <AnimatedSection className="mb-16">
           <ImagePlaceholder
-            src={null}
+            src='/images/about/tentang.png'
             label="Tentang — Gambaran Umum Perusahaan / Kantor"
             aspectRatio="16/9"
             className="shadow-lg"

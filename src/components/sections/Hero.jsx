@@ -28,10 +28,10 @@ const itemVariants = {
 
 // 4 product images untuk mosaic grid kanan
 const PRODUCT_IMAGES = [
-  { src: '/images/products/bsf-maggot-closeup.jpg',       alt: 'BSF — Budidaya Maggot',            label: 'BSF Organik'   },
-  { src: '/images/products/rdf-briquette-product.jpg',    alt: 'RDF/BBJP — Briket Bahan Bakar',    label: 'RDF/BBJP'      },
-  { src: '/images/products/geocell-field-installation.jpg', alt: 'Geocell — Infrastruktur Jalan', label: 'Geocell'       },
-  { src: '/images/products/gasification-plant-render.jpg', alt: 'Gasifikasi — Pembangkit Listrik', label: 'Gasifikasi'   },
+  { src: '/images/products/maggot(fix).png',       alt: 'BSF — Budidaya Maggot',            label: 'BSF Organik'   },
+  { src: '/images/products/RDF(fix).png',    alt: 'RDF/BBJP — Briket Bahan Bakar',    label: 'RDF/BBJP'      },
+  { src: '/images/products/geocellfield(fix).png', alt: 'Geocell — Infrastruktur Jalan', label: 'Geocell'       },
+  { src: '/images/products/gassification(fix).png', alt: 'Gasifikasi — Pembangkit Listrik', label: 'Gasifikasi'   },
 ];
 
 function scrollTo(href) {
